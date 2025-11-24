@@ -170,7 +170,7 @@ char * getFormaInFixa (char *StrPosFixa) {
             
             char op1_final[MAX_STRING_LENGTH];
             char op2_final[MAX_STRING_LENGTH];
-            
+        
             if (op1_node.precedencia_maxima < op_prec || 
                 (op1_node.precedencia_maxima == op_prec && strcmp(op_token, "^") == 0)) {
                 snprintf(op1_final, MAX_STRING_LENGTH, "(%s)", op1_node.str);
@@ -186,6 +186,7 @@ char * getFormaInFixa (char *StrPosFixa) {
             }
 
             char nova_str[MAX_STRING_LENGTH];
+            
             snprintf(nova_str, MAX_STRING_LENGTH, "%s%s%s", op1_final, op_token, op2_final);
             
             empilha_str_node(nova_str, op_prec);
@@ -203,5 +204,4 @@ char * getFormaInFixa (char *StrPosFixa) {
 
     free(copia_str);
     return inFixa_result;
-
 }
