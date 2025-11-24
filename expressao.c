@@ -152,19 +152,18 @@ char * getFormaInFixa (char *StrPosFixa) {
     while (token != NULL) {
         int op_type = is_operator(token);
 
-        if (op_type == 0) { // Operando (Número)
+        if (op_type == 0) {
             empilha_str_node(token, get_precedencia(token));
-        } else if (op_type == 1) { // Operador Unário
+        } else if (op_type == 1) {
             InfixaNode op_node = desempilha_str_node();
             
             char nova_str[MAX_STRING_LENGTH];
-            // Unários sempre têm a precedência máxima (4)
             snprintf(nova_str, MAX_STRING_LENGTH, "%s(%s)", token, op_node.str); 
             
             empilha_str_node(nova_str, get_precedencia(token));
-        } else if (op_type == 2) { // Operador Binário
-            InfixaNode op2_node = desempilha_str_node(); // Operando B
-            InfixaNode op1_node = desempilha_str_node(); // Operando A
+        } else if (op_type == 2) {
+            InfixaNode op2_node = desempilha_str_node();
+            InfixaNode op1_node = desempilha_str_node();
             
             char *op_token = token;
             int op_prec = get_precedencia(op_token);
@@ -204,4 +203,5 @@ char * getFormaInFixa (char *StrPosFixa) {
 
     free(copia_str);
     return inFixa_result;
+
 }
