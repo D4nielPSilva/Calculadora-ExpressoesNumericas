@@ -1,3 +1,4 @@
+// Arquivo main.c CORRIGIDO
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,14 +10,12 @@ Expressao testes[] = {
     
     {"3 4 + 5 *", "(3+4)*5", 35.0f},
     {"7 2 * 4 +", "7*2+4", 18.0f},
-    {"8 5 2 4 + * +", "8+5*(2+4)", 38.0f}, //
+    {"8 5 2 4 + * +", "8+5*(2+4)", 38.0f}, 
     {"6 2 / 3 + 4 *", "(6/2+3)*4", 24.0f},
-    // Teste 5: Valor 179 e infixa corrigida (baseada na prioridade)
-    {"9 5 4 8 * 2 + * +", "9+5*(4*8+2)", 179.0f}, 
+    {"9 5 4 8 2 * + * +", "9+5*(4+8*2)", 109.0f}, 
     {"2 3 + log 5 /", "log(2+3)/5", 0.13979f},
     {"10 log 3 ^ 2 +", "log(10)^3+2", 3.0f},
     {"45 60 + 30 cos *", "(45+60)*cos(30)", 90.9326f},
-    // Teste 9: Infixa correta (sem parênteses externos, ordem correta)
     {"0.5 45 sen 2 ^ +", "0.5+sen(45)^2", 1.0f} 
 };
 
